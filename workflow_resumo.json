@@ -1,0 +1,161 @@
+{
+  "name": "Workflow 2 - Diário",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 21
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7340cfe0-abc3-4f09-a5a9-dd7cd19f6a6e",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT categoria, assunto, resumo FROM daily_emails ORDER BY categoria;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        224,
+        0
+      ],
+      "id": "7bd79e33-b2c0-4a7d-8875-6770dfcee2cb",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "c3ERbQCq1Q9psH6W",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let mensagem = \"📊 *SEU RESUMO DIÁRIO DE E-MAILS* 📊\\n\\n\";\n\nfor (let item of $input.all()) {\n    mensagem += `*Categoria:* ${item.json.categoria}\\n`;\n    mensagem += `*Assunto:* ${item.json.assunto}\\n`;\n    mensagem += `*Resumo:* ${item.json.resumo}\\n`;\n    mensagem += `----------------------\\n`;\n}\n\n// Se não houver e-mails no banco, envia um aviso amigável\nif ($input.all().length === 0) {\n    mensagem = \"Nenhum e-mail normal recebido hoje! Caixa de entrada limpa. ✨\";\n}\n\nreturn [{ json: { resumo_formatado: mensagem } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "6cc64857-876d-4a29-aac1-b1b3c815f8ca",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "chatId": "5645191322",
+        "text": "={{ $json.resumo_formatado }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "1f51a983-29b9-4be9-b425-893cde5d7295",
+      "name": "Send a text message",
+      "webhookId": "b5945bb4-0d01-4ca3-a30a-e5e0db99208a",
+      "credentials": {
+        "telegramApi": {
+          "id": "ag9grsMVTh31gU14",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "TRUNCATE TABLE daily_emails;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.7,
+      "position": [
+        896,
+        0
+      ],
+      "id": "7bb60f92-8986-47b4-980f-9bce60404199",
+      "name": "Execute a SQL query1",
+      "credentials": {
+        "postgres": {
+          "id": "c3ERbQCq1Q9psH6W",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "d135278c-6d24-4ef8-8123-07648cf17008",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fbcd533e8994f5e31e474d0ec543179a902bc49219b055ef920b10bac67f9299"
+  },
+  "nodeGroups": [],
+  "id": "g8spiikAtZkqJx4a",
+  "tags": []
+}

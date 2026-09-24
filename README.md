@@ -18,8 +18,8 @@ Um Agente Autônomo de Inteligência Artificial de nível corporativo construíd
 <p align="center">
 
 <img width="290" height="70" alt="PostgreSQL_zonalogo" src="https://github.com/user-attachments/assets/571efa63-8747-44e1-900a-cde7f7ead7a7" />
-<img width="310" height="70" alt="Supabase_zonalogo" src="https://github.com/user-attachments/assets/3c88ff0c-c737-4bdd-9d5a-7ea80f0cdf5d" />
-<img width="300" height="70" alt="Oracle_zonalogo" src="https://github.com/user-attachments/assets/c4d6c326-0869-4aa6-b0c4-81ca5c5e9318" />
+<img width="320" height="70" alt="Supabase_zonalogo" src="https://github.com/user-attachments/assets/3c88ff0c-c737-4bdd-9d5a-7ea80f0cdf5d" />
+<img width="330" height="70" alt="Oracle_zonalogo" src="https://github.com/user-attachments/assets/c4d6c326-0869-4aa6-b0c4-81ca5c5e9318" />
 
 
 </p>

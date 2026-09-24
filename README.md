@@ -4,6 +4,28 @@ Um Agente Autônomo de Inteligência Artificial de nível corporativo construíd
 
 <br>
 
+<p align="center">
+
+<img width="250" height="70" alt="n8n zonalogo" src="https://github.com/user-attachments/assets/5e2ab3c5-bb7c-48a1-8c7c-91ac31fc7277" />
+<img width="70" height="70" alt="gemini_icon_zonalogo" src="https://github.com/user-attachments/assets/9baec3e4-0817-4d95-aba2-1e2d5fc5670c" />
+<img width="70" height="70" alt="Telegram_zonalogo" src="https://github.com/user-attachments/assets/a67b8840-665d-4326-badf-8a77d7283d21" />
+<img width="70" height="70" alt="javascript-svgrepo-com" src="https://github.com/user-attachments/assets/a9cb22f0-ec91-43af-96d5-0ace901999f1" />
+<img width="180" height="70" alt="docker2-svgrepo" src="https://github.com/user-attachments/assets/9e254935-1396-4695-9726-4d50513305e9" />
+
+
+</p>
+
+<p align="center">
+
+<img width="290" height="70" alt="PostgreSQL_zonalogo" src="https://github.com/user-attachments/assets/571efa63-8747-44e1-900a-cde7f7ead7a7" />
+<img width="310" height="70" alt="Supabase_zonalogo" src="https://github.com/user-attachments/assets/3c88ff0c-c737-4bdd-9d5a-7ea80f0cdf5d" />
+<img width="300" height="70" alt="Oracle_zonalogo" src="https://github.com/user-attachments/assets/c4d6c326-0869-4aa6-b0c4-81ca5c5e9318" />
+
+
+</p>
+
+<br>
+
 Workflow 1 (`workflow_triagem.json`):
 
 <img width="1508" height="602" alt="workflow1" src="https://github.com/user-attachments/assets/00691747-e772-4e31-be71-d7dc98484047" />
